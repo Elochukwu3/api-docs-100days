@@ -32,7 +32,7 @@ a4f5c6d7e8a9b10c11d12e13f14b15c16d17e18f19a20b21c22d23e24f25g26
     "state": "string",
     "email": "string",
     "password": "string",
-    "confirmPassword:"string"
+    "confirmPassword": "string"
   }
   ```
 - **Responses**:
