@@ -27,7 +27,6 @@ This endpoint retrieves all Nigerian states along with their corresponding IDs, 
     "lgas": [
       { "id": 1, "name": "Aba North" },
       { "id": 2, "name": "Arochukwu" }
-      ...
     ]
   },
   {
@@ -37,7 +36,6 @@ This endpoint retrieves all Nigerian states along with their corresponding IDs, 
     "lgas": [
       { "id": 1, "name": "Demsa" },
       { "id": 2, "name": "Fufure" }
-      ...
     ]
   }
 ]
