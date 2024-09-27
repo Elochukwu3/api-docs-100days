@@ -1,7 +1,7 @@
 ### API Documentation for State Usage (Frontend)
 
 This documentation provides details on how the frontend can interact with the backend to retrieve information about Nigerian states and their local government areas (LGAs). Below are the available endpoints, request formats, response structures, and example usage.
-
+## Note not apikey needed to access this endpoint
 ---
 ``` baseEndpoint: https://100daysofcoding-production.up.railway.app/```
 ### 1. **Get All States**
