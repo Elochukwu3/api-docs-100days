@@ -7,12 +7,12 @@
 ## Base URL
 The base URL for all project endpoints is:
 ```
-https://100daysofcoding-production.up.railway.app/
+https://one00daysofcoding.onrender.com/
 ```
 ## Auth Section
 Endpoint:
 ```
-https://100daysofcoding-production.up.railway.app/auth/v1
+https://one00daysofcoding.onrender.com/auth/v1
 ```
 API Key:
 ```
