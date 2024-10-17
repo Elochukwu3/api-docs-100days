@@ -1,105 +1,194 @@
 
-### User Profile API Documentation
 
-#### Base URL
+```markdown
+# API Documentation
+
+## User API
+
+### Base URL
+
 ```
-/api/v1/profile
+http://your-api-url/api/v1/users
 ```
 
 ### Endpoints
 
-#### 1. **Get User Profile**
-- **Endpoint**: `/api/v1/profile/`
-- **Method**: `GET`
-- **Description**: Retrieve the profile information of the authenticated user.
-- **Middleware**: 
-  - `verifyUserAccess`: Ensures the user is authenticated.
-  - `verifyRoles(Roles.Admin)`: Only users with admin roles can access this route.
-  
-- **Response**:
-  - **Success (200)**: Returns the user profile information.
-    - **Example Response**:
+#### 1. Get User Profile
+
+- **URL:** `/profile`
+- **Method:** `GET`
+- **Authentication:** Required (Bearer Token)
+- **Permissions:** User must be authenticated.
+
+**Description:** Retrieves the profile of the currently authenticated user.
+
+**Request Headers:**
+```http
+Authorization: Bearer <token>
+```
+
+**Response:**
+
+- **Success (200):**
+    - **Content:**
     ```json
     {
-      "id": "123456789",
-      "name": "John Doe",
-      "email": "johndoe@example.com",
-      "role": "User",
-      "createdAt": "2024-10-18T00:00:00Z",
-      "updatedAt": "2024-10-18T00:00:00Z"
+        "status": "success",
+        "data": {
+            "firstname": "John",
+            "lastname": "Doe",
+            "state": "California",
+            "profilePicture": "url-to-profile-picture",
+            "email": "john.doe@example.com",
+            "address": "123 Main St",
+            "roles": {
+                "Admin": 1,
+                "User": 1000
+            }
+        },
+        "statusCode": 200
     }
     ```
 
-- **Error (401)**: Unauthorized if the user is not authenticated.
-- **Error (403)**: Forbidden if the user does not have the admin role.
-
-#### 2. **Get User Profile by User ID**
-- **Endpoint**: `/api/v1/profile/:userId`
-- **Method**: `GET`
-- **Description**: Retrieve the profile information for a specific user by user ID.
-- **Parameters**: 
-  - `userId` (path parameter): The ID of the user whose profile is being retrieved.
-  
-- **Middleware**: 
-  - `verifyUserAccess`: Ensures the user is authenticated.
-  
-- **Response**:
-  - **Success (200)**: Returns the user profile information.
-    - **Example Response**:
+- **Error (401):**
+    - **Content:**
     ```json
     {
-      "id": "987654321",
-      "name": "Jane Smith",
-      "email": "janesmith@example.com",
-      "role": "User",
-      "createdAt": "2024-10-18T00:00:00Z",
-      "updatedAt": "2024-10-18T00:00:00Z"
+        "status": "failed",
+        "message": "Unauthorized access. No valid user found",
+        "statusCode": 401
     }
     ```
 
-- **Error (404)**: Not Found if the user with the specified ID does not exist.
-- **Error (401)**: Unauthorized if the user is not authenticated.
-
-#### 3. **Update User Profile**
-- **Endpoint**: `/api/v1/profile/:userId`
-- **Method**: `PATCH`
-- **Description**: Update the profile information of a specific user by user ID.
-- **Parameters**:
-  - `userId` (path parameter): The ID of the user whose profile is being updated.
-  
-- **Request Body**: 
-  - Should contain the fields to be updated.
-  - **Example Request Body**:
-  ```json
-  {
-    "name": "Jane Doe",
-    "email": "janedoe@example.com"
-  }
-  ```
-
-- **Middleware**: 
-  - `verifyUserAccess`: Ensures the user is authenticated.
-
-- **Response**:
-  - **Success (200)**: Returns the updated user profile information.
-    - **Example Response**:
+- **Error (404):**
+    - **Content:**
     ```json
     {
-      "id": "987654321",
-      "name": "Jane Doe",
-      "email": "janedoe@example.com",
-      "role": "User",
-      "createdAt": "2024-10-18T00:00:00Z",
-      "updatedAt": "2024-10-18T00:00:00Z"
+        "status": "failed",
+        "message": "User not found",
+        "statusCode": 404
     }
     ```
 
-- **Error (400)**: Bad Request if the provided data is invalid.
-- **Error (404)**: Not Found if the user with the specified ID does not exist.
-- **Error (401)**: Unauthorized if the user is not authenticated.
+#### 2. Update User Profile
 
-### Additional Information
-- **Authentication**: All endpoints require the user to be authenticated. Ensure that your API client includes the necessary authentication headers (e.g., a JWT token) in requests.
-- **Roles**: Only users with the `Admin` role can retrieve profiles of other users. Normal users can only access their profile.
+- **URL:** `/profile/:userId`
+- **Method:** `PATCH`
+- **Authentication:** Required (Bearer Token)
+- **Permissions:** User must be authenticated and have the right to update the specified user profile.
+
+**Description:** Updates the profile information for the user identified by `userId`.
+
+**Request Headers:**
+```http
+Authorization: Bearer <token>
+```
+
+**Request Body:**
+```json
+{
+    "firstname": "Jane",
+    "lastname": "Doe",
+    "state": "New York",
+    "address": "456 Elm St"
+}
+```
+
+**Response:**
+
+- **Success (200):**
+    - **Content:**
+    ```json
+    {
+        "status": "success",
+        "data": {
+            "firstname": "Jane",
+            "lastname": "Doe",
+            "state": "New York",
+            "address": "456 Elm St",
+            "email": "john.doe@example.com",
+            "roles": {
+                "Admin": 1,
+                "User": 1000
+            }
+        },
+        "statusCode": 200
+    }
+    ```
+
+- **Error (400):**
+    - **Content:**
+    ```json
+    {
+        "status": "failed",
+        "message": "Validation error message",
+        "statusCode": 400
+    }
+    ```
+
+- **Error (401):**
+    - **Content:**
+    ```json
+    {
+        "status": "failed",
+        "message": "Unauthorized access. No valid user found",
+        "statusCode": 401
+    }
+    ```
+
+- **Error (404):**
+    - **Content:**
+    ```json
+    {
+        "status": "failed",
+        "message": "User not found",
+        "statusCode": 404
+    }
+    ```
+
+### Validation Schemas
+
+#### 1. User Registration
+
+**Schema:**
+```json
+{
+    "firstname": "string (min 2 characters)",
+    "lastname": "string (min 2 characters)",
+    "state": "string (min 3 characters)",
+    "email": "string (valid email format)",
+    "password": "string (at least 8 characters, 1 uppercase, 1 lowercase, 1 digit)",
+    "confirmPassword": "string (must match password)"
+}
+```
+
+#### 2. User Login
+
+**Schema:**
+```json
+{
+    "email": "string (valid email format)",
+    "password": "string (at least 8 characters, 1 uppercase, 1 lowercase, 1 digit)"
+}
+```
+
+#### 3. OTP Verification
+
+**Schema:**
+```json
+{
+    "email": "string (valid email format)",
+    "otp": "string (6 characters long)"
+}
+```
+
+### Status Codes
+
+- **200:** Success
+- **400:** Bad Request (Validation error)
+- **401:** Unauthorized (Authentication error)
+- **404:** Not Found (User not found)
+- **500:** Internal Server Error (Server issues)
+
 
 
