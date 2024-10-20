@@ -166,48 +166,8 @@ Authorization: Bearer <token>
 }
 ```
 
-### **Possible Errors**:
-- **404 Not Found**: Product with the given ID does not exist.
 
----
 
-### **6. Add a Review**
-### **Endpoint**: `POST /api/v1/products/:id/reviews`
-### **Description**: Adds a new review to a product.
-
-### **Request Body** (JSON):
-```json
-{
-  "userId": "64e8f42be71c3",
-  "name": "John Doe",
-  "rating": 5,
-  "comment": "Great product!"
-}
-```
-
-### **Response** (200 - OK):
-```json
-{
-  "message": "Review added successfully",
-  "product": {
-    "_id": "64e8e342eb45a",
-    "name": "Sample Product",
-    "description": "This is a sample product.",
-    "price": 100,
-    "category": "Electronics",
-    "images": ["image1.jpg", "image2.jpg"],
-    "stock": 50,
-    "ratings": 5,
-    "reviews": [
-      {
-        "userId": "64e8f42be71c3",
-        "name": "John Doe",
-        "rating": 5,
-        "comment": "Great product!"
-      }
-    ]
-  }
-}
 ```
 
 ### **Possible Errors**:
