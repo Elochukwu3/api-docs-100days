@@ -1,6 +1,6 @@
 # Product API Documentation
 
-## **Base URL**: `/api/v1/products`
+## **Base URL**: `/product/v1`
 
 ### Authentication:  
 All product-related endpoints require authentication unless stated otherwise. Provide the API key or JWT token in the request headers:  
@@ -12,7 +12,7 @@ Authorization: Bearer <token>
 ---
 
 ## **1. Create a Product**
-### **Endpoint**: `POST /api/v1/products`
+### **Endpoint**: `POST /product/v1`
 ### **Description**: Creates a new product in the system.
 
 ### **Request Body** (JSON):
@@ -51,7 +51,7 @@ Authorization: Bearer <token>
 ---
 
 ## **2. Get All Products**
-### **Endpoint**: `GET /api/v1/products`
+### **Endpoint**: `GET /product/v1`
 ### **Description**: Retrieves all products, with optional filtering via query parameters.
 
 ### **Query Parameters** (optional):
@@ -85,7 +85,7 @@ Authorization: Bearer <token>
 ---
 
 ## **3. Get Product by ID**
-### **Endpoint**: `GET /api/v1/products/:id`
+### **Endpoint**: `GET /product/v1/:id`
 ### **Description**: Fetches a product by its unique ID.
 
 ### **Path Parameters**:
