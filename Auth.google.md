@@ -1,7 +1,7 @@
 # Google API Endpoint Documentation
 This document provides an overview of the available Google API endpoints, their methods, and the expected responses.
 
-## **Base URL**: `api/auth/v1/google`
+## **Base URL**: `auth/v1/google`
 
 ## Available endpoints 
 - **GET /v1/google**: Kicks off the google auth redirecting you to google page
@@ -14,7 +14,7 @@ This document provides an overview of the available Google API endpoints, their 
 ### **Response**: There is no response user is being redirected 
 
 ## **2. Failure of google auth**
-### **Endppoint**: `GET /api/v1/google/failure`
+### **Endppoint**: `GET /auth/v1/google/failure`
 ### **Description**: When the auth fails due to some reasons like user rejecting request of permissions or internal server errors
 
 ### **Response**:
@@ -36,7 +36,7 @@ This document provides an overview of the available Google API endpoints, their 
 ```
 
 ## **3. Success of google auth**
-### **Endppoint**: `GET /api/v1/google/success`
+### **Endppoint**: `GET /auth/v1/google/success`
 ### **Description**: The auth is successful and user logs in
 
 ### **Response** (200 - Success):
