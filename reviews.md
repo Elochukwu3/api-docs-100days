@@ -1,6 +1,16 @@
 
 
 ### **Reviews Endpoint Documentation**
+## Base URL
+The base URL for all project endpoints is:
+```
+https://one00daysofcoding.onrender.com/
+```
+## Auth Section
+Endpoint:
+```
+https://one00daysofcoding.onrender.com/v1/products/
+```
 
 #### **1. Add a Review**
 - **Endpoint**: `POST /:id/reviews`
