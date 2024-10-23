@@ -1,6 +1,15 @@
 # Product API Documentation
 
-## **Base URL**: `/product/v1`
+## Base URL
+The base URL for all project endpoints is:
+```
+https://one00daysofcoding.onrender.com/
+```
+## Product Section
+Endpoint:
+```
+https://one00daysofcoding.onrender.com/v1/products
+```
 
 ### Authentication:  
 All product-related endpoints require authentication unless stated otherwise. Provide the API key or JWT token in the request headers:  
@@ -12,7 +21,7 @@ Authorization: Bearer <token>
 ---
 
 ## **1. Create a Product**
-### **Endpoint**: `POST /product/v1`
+### **Endpoint**: `POST /v1/products`
 ### **Description**: Creates a new product in the system.
 
 ### **Request Body** (JSON):
@@ -51,7 +60,7 @@ Authorization: Bearer <token>
 ---
 
 ## **2. Get All Products**
-### **Endpoint**: `GET /product/v1`
+### **Endpoint**: `GET /v1/products`
 ### **Description**: Retrieves all products, with optional filtering via query parameters.
 
 ### **Query Parameters** (optional):
@@ -85,7 +94,7 @@ Authorization: Bearer <token>
 ---
 
 ## **3. Get Product by ID**
-### **Endpoint**: `GET /product/v1/:id`
+### **Endpoint**: `GET /v1/products:id`
 ### **Description**: Fetches a product by its unique ID.
 
 ### **Path Parameters**:
@@ -112,7 +121,7 @@ Authorization: Bearer <token>
 ---
 
 ## **4. Update a Product**
-### **Endpoint**: `PUT /api/v1/products/:id`
+### **Endpoint**: `PUT /v1/products/:id`
 ### **Description**: Updates an existing product’s details.
 
 ### **Request Body** (JSON):
@@ -147,7 +156,7 @@ Authorization: Bearer <token>
 ---
 
 ## **5. Delete a Product**
-### **Endpoint**: `DELETE /api/v1/products/:id`
+### **Endpoint**: `DELETE /v1/products/:id`
 ### **Description**: Deletes a product by its ID.
 
 ### **Response** (200 - OK):
