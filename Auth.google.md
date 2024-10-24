@@ -47,11 +47,12 @@ This document provides an overview of the available Google API endpoints, their 
   "user": {
     "firstname": "user firstname",
     "lastname": "user lastname",
-    "profilePicture" : "user avatar",
     "email": "user email",
-    "phone number": "user phone number",    
+    "phoneNumber": "user phone number", 
+    "profilePicture" : "user avatar",   
   },
-    "statuscode": 200,
+  "accessToken": "User access token to be saved after authentication",
+  "statuscode": 200,
 }
 ```
 
