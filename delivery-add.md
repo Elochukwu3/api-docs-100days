@@ -1,9 +1,17 @@
 ### API Documentation for Delivery Address Feature
 
+## Base URL
+The base URL for all project endpoints is:
+```
+https://one00daysofcoding.onrender.com/
+```
 #### 1. **Create a New Delivery Address**
    - **Endpoint:** `POST /v1/delivery/address`
    - **Description:** Adds a new delivery address for the authenticated user.
    - **Authorization:** Requires Bearer token.
+   - **sample url**: ``
+https://one00daysofcoding.onrender.com/v1/delivery/address
+``
    - **Request Body:**
      ```json
      {
@@ -42,6 +50,9 @@
    - **Endpoint:** `GET /v1/delivery/address`
    - **Description:** Retrieves all delivery addresses associated with the authenticated user.
    - **Authorization:** Requires Bearer token.
+   - **sample url**: ``
+https://one00daysofcoding.onrender.com/v1/delivery/address
+``
    - **Response:**
      - **Status:** 200 OK
      - **Response Body:**
@@ -80,6 +91,9 @@
    - **Endpoint:** `PUT /v1/delivery/address/:id`
    - **Description:** Updates a specific delivery address for the authenticated user.
    - **Authorization:** Requires Bearer token.
+   - **sample url:** ``
+https://one00daysofcoding.onrender.com/v1/delivery/address/.......
+``
    - **Request Body (Optional Fields):**
      ```json
      {
@@ -121,6 +135,49 @@
          "message": "Delivery address deleted successfully"
        }
        ```
+#### 5. Get Delivery Address by ID
+
+**Endpoint:** `GET /v1/delivery/address/:id`
+**Description:** Fetch a specific delivery address by its ID. The user must be authenticated.
+**Request Parameters:**- `id` (string, required): The ID of the delivery address.
+**Authentication:** Requires user authentication (`req.user` is used to validate ownership).
+**Response:**
+- **200 OK:**  
+  Returns the delivery address object if found.
+  ```json
+  {
+    "status": true,
+    "address": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "phoneNumber": "+1234567890",
+      "streetAddress": "123 Street Name",
+      "directions": "Near the park",
+      "lga": "Local Government Area",
+      "city": "City Name",
+      "state": "State Name"
+    }
+  }
+  ```
+
+- **401 Unauthorized:**  
+  If the user is not authenticated or the address does not belong to the user.
+  ```json
+  {
+    "status": false,
+    "message": "Unauthorized access"
+  }
+  ```
+
+- **404 Not Found:**  
+  If the delivery address with the specified `id` is not found.
+  ```json
+  {
+    "status": false,
+    "message": "Address not found"
+  }
+  ```
+  
 ### Note on `req.user` for Authenticated Routes
 
 For all delivery address routes, `req.user` is used to identify the logged-in user. This means that users must be authenticated to add, update, get, or delete their addresses.
