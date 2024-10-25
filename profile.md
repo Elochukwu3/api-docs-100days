@@ -4,13 +4,13 @@
 
 #### Base URL
 ```
-/api/v1/profile
+https://one00daysofcoding.onrender.com/
 ```
 
 ### Endpoints
 
 #### 1. **Get User Profile**
-- **Endpoint**: `/api/v1/profile/`
+- **Endpoint**: `/user/v1/profile`
 - **Method**: `GET`
 - **Description**: Retrieve the profile information of the authenticated user.
 - **Middleware**: 
@@ -35,7 +35,7 @@
 - **Error (403)**: Forbidden if the user does not have the admin role.
 
 #### 2. **Get User Profile by User ID**
-- **Endpoint**: `/api/v1/profile/:userId`
+- **Endpoint**: `/user/v1/profile/:userId`
 - **Method**: `GET`
 - **Description**: Retrieve the profile information for a specific user by user ID.
 - **Parameters**: 
@@ -62,7 +62,7 @@
 - **Error (401)**: Unauthorized if the user is not authenticated.
 
 #### 3. **Update User Profile**
-- **Endpoint**: `/api/v1/profile/:userId`
+- **Endpoint**: `/user/v1/profile/:userId`
 - **Method**: `PATCH`
 - **Description**: Update the profile information of a specific user by user ID.
 - **Parameters**:
