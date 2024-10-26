@@ -4,12 +4,12 @@ This document provides an overview of the available Google API endpoints, their 
 ## **Base URL**: `auth/v1/google`
 
 ## Available endpoints 
-- **GET /v1/google**: Kicks off the google auth redirecting you to google page
-- **GET /v1/google/callback/failure**: When the google authentication was a failure
-- **GET /v1/google/callback/success**: when the google authentication was a success
+- **GET auth/v1/google**: Kicks off the google auth redirecting you to google page
+- **GET auth/v1/google/callback/failure**: When the google authentication was a failure
+- **GET auth/v1/google/callback/success**: when the google authentication was a success
 
 ## **1. Kick off google auth**
-### **Endpoint**: `GET /api/v1/google`
+### **Endpoint**: `GET /auth/v1/google`
 ### **Description**: Interact with endpoint from a click of a button from client which redirect user to google page for choosing account
 ### **Response**: There is no response user is being redirected 
 
