@@ -1,8 +1,6 @@
 # Google API Endpoint Documentation
 This document provides an overview of the available Google API endpoints, their methods, and the expected responses.
 
-## **Base URL**: `auth/v1/google`
-
 ## Available endpoints 
 - **GET auth/v1/google**: Kicks off the google auth redirecting you to google page
 - **GET auth/v1/google/callback/failure**: When the google authentication was a failure
