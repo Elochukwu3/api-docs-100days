@@ -32,7 +32,7 @@ Authorization: Bearer <token>
   "price": 100,
   "category": "Electronics",
   "images": ["image1.jpg", "image2.jpg"],
-  "stock": 50
+  "unit": 50
 }
 ```
 
@@ -45,7 +45,7 @@ Authorization: Bearer <token>
   "price": 100,
   "category": "Electronics",
   "images": ["image1.jpg", "image2.jpg"],
-  "stock": 50,
+  "unit": 50,
   "ratings": 0,
   "reviews": [],
   "createdAt": "2024-10-16T12:00:00.000Z",
@@ -79,7 +79,7 @@ Authorization: Bearer <token>
     "price": 100,
     "category": "Electronics",
     "images": ["image1.jpg", "image2.jpg"],
-    "stock": 50,
+    "unit": 50,
     "ratings": 0,
     "reviews": [],
     "createdAt": "2024-10-16T12:00:00.000Z",
@@ -109,7 +109,7 @@ Authorization: Bearer <token>
   "price": 100,
   "category": "Electronics",
   "images": ["image1.jpg", "image2.jpg"],
-  "stock": 50,
+  "unit": 50,
   "ratings": 0,
   "reviews": []
 }
@@ -129,7 +129,7 @@ Authorization: Bearer <token>
 {
   "name": "Updated Product Name",
   "price": 150,
-  "stock": 30
+  "unit": 30
 }
 ```
 
@@ -142,7 +142,7 @@ Authorization: Bearer <token>
   "price": 150,
   "category": "Electronics",
   "images": ["image1.jpg", "image2.jpg"],
-  "stock": 30,
+  "unit": 30,
   "ratings": 0,
   "reviews": [],
   "updatedAt": "2024-10-17T12:00:00.000Z"
@@ -170,7 +170,7 @@ Authorization: Bearer <token>
     "price": 100,
     "category": "Electronics",
     "images": ["image1.jpg", "image2.jpg"],
-    "stock": 50
+    "unit": 50
   }
 }
 ```
